@@ -21,8 +21,13 @@ namespace Final_Project_APW.Migrations
                     Phone = table.Column<int>(type: "int", nullable: false),
                     NumDoc = table.Column<long>(type: "bigint", nullable: false),
                     Birthday = table.Column<DateTime>(type: "datetime2", nullable: false),
+<<<<<<< HEAD:Final-Project-APW/Migrations/20231125130551_dbITM.cs
                     EstateId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     TypeDocumentId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+=======
+                    EstateId = table.Column<int>(type: "int", nullable: false),
+                    TypeDocumentId = table.Column<int>(type: "int", nullable: false),
+>>>>>>> Cambios SincronizarMerge fix:Final-Project-APW/Migrations/20231125051819_InitialDB.cs
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     ModifiedDate = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },

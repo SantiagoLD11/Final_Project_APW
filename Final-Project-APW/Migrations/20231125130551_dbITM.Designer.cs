@@ -12,8 +12,13 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Final_Project_APW.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
+<<<<<<< HEAD:Final-Project-APW/Migrations/20231125130551_dbITM.Designer.cs
     [Migration("20231125130551_dbITM")]
     partial class dbITM
+=======
+    [Migration("20231125051819_InitialDB")]
+    partial class InitialDB
+>>>>>>> Cambios SincronizarMerge fix:Final-Project-APW/Migrations/20231125051819_InitialDB.Designer.cs
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -66,8 +71,13 @@ namespace Final_Project_APW.Migrations
                     b.Property<DateTime?>("CreatedDate")
                         .HasColumnType("datetime2");
 
+<<<<<<< HEAD:Final-Project-APW/Migrations/20231125130551_dbITM.Designer.cs
                     b.Property<Guid>("EstateId")
                         .HasColumnType("uniqueidentifier");
+=======
+                    b.Property<int>("EstateId")
+                        .HasColumnType("int");
+>>>>>>> Cambios SincronizarMerge fix:Final-Project-APW/Migrations/20231125051819_InitialDB.Designer.cs
 
                     b.Property<string>("FirstName")
                         .IsRequired()
@@ -96,8 +106,13 @@ namespace Final_Project_APW.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+<<<<<<< HEAD:Final-Project-APW/Migrations/20231125130551_dbITM.Designer.cs
                     b.Property<Guid>("TypeDocumentId")
                         .HasColumnType("uniqueidentifier");
+=======
+                    b.Property<int>("TypeDocumentId")
+                        .HasColumnType("int");
+>>>>>>> Cambios SincronizarMerge fix:Final-Project-APW/Migrations/20231125051819_InitialDB.Designer.cs
 
                     b.HasKey("Id");
 
