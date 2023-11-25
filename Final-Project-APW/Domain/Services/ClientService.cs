@@ -8,9 +8,9 @@ namespace Final_Project_APW.Domain.Services
 {
     public class ClientService : IClientService
     {
-        private readonly DataBaseContext _context;
+        private readonly DatabaseContext _context;
 
-        public ClientService(DataBaseContext context)
+        public ClientService(DatabaseContext context)
         {
             _context = context;
         }
