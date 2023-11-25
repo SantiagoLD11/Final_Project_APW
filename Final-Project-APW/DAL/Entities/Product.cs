@@ -11,15 +11,8 @@ namespace Final_Project_APW.DAL.Entities
         public string Name { get; set; } //varchar(50)
         public string Description { get; set; }
         public float Price { get; set; }
-        public int Preparation_time { get; set; } //Reputación de 1 a 5 estrellas que tiene el hotel.
-        public int IdEstdado { get; set; }
-        public int IdCategorie { get; set; }
-
-        [Display(Name = "Categoria")]
-        //relación con Rooms 
-        public ICollection<Category>? Categories { get; set; }
-        [Display(Name = "Estado")]
-        //relación con Rooms 
-        public ICollection<Estate>? Estates { get; set; }
+        public int Preparation_time_min { get; set; } //Reputación de 1 a 5 estrellas que tiene el hotel.
+        public int IdEstate { get; set; }
+        public int IdCategory { get; set; }
     }
 }
