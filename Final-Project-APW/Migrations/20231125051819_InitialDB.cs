@@ -10,6 +10,28 @@ namespace Final_Project_APW.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "Clients",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    FirstName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    SecondName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Mail = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Phone = table.Column<int>(type: "int", nullable: false),
+                    NumDoc = table.Column<long>(type: "bigint", nullable: false),
+                    Birthday = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    EstateId = table.Column<int>(type: "int", nullable: false),
+                    TypeDocumentId = table.Column<int>(type: "int", nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    ModifiedDate = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Clients", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Products",
                 columns: table => new
                 {
@@ -26,6 +48,20 @@ namespace Final_Project_APW.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Products", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "TypesDocs",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    ModifiedDate = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TypesDocs", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -80,6 +116,12 @@ namespace Final_Project_APW.Migrations
                 column: "ProductsId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Clients_NumDoc",
+                table: "Clients",
+                column: "NumDoc",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Estates_Name",
                 table: "Estates",
                 column: "Name",
@@ -95,6 +137,12 @@ namespace Final_Project_APW.Migrations
                 table: "Products",
                 column: "Name",
                 unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_TypesDocs_Name",
+                table: "TypesDocs",
+                column: "Name",
+                unique: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -103,7 +151,13 @@ namespace Final_Project_APW.Migrations
                 name: "Categories");
 
             migrationBuilder.DropTable(
+                name: "Clients");
+
+            migrationBuilder.DropTable(
                 name: "Estates");
+
+            migrationBuilder.DropTable(
+                name: "TypesDocs");
 
             migrationBuilder.DropTable(
                 name: "Products");

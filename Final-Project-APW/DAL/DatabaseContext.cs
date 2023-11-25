@@ -15,7 +15,9 @@ namespace Final_Project_APW.DAL
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Product>().HasIndex(c => c.Name).IsUnique(); //Esto es un índice para evitar nombres duplicados de productos
-            modelBuilder.Entity<Category>().HasIndex(c => c.Name).IsUnique(); 
+            modelBuilder.Entity<Category>().HasIndex(c => c.Name).IsUnique();
+            modelBuilder.Entity<TypeDocument>().HasIndex(c => c.Name).IsUnique(); 
+            modelBuilder.Entity<Client>().HasIndex(c => c.NumDoc).IsUnique();
             modelBuilder.Entity<Estate>().HasIndex(c => c.Name).IsUnique(); 
 
         }
@@ -23,6 +25,8 @@ namespace Final_Project_APW.DAL
         public DbSet<Product> Products { get; set; } 
         public DbSet<Estate> Estates { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Client> Clients { get; set; }
+        public DbSet<TypeDocument> TypesDocs { get; set; }
 
     }
 }
