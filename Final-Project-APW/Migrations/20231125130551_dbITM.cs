@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Final_Project_APW.Migrations
 {
-    public partial class InitialDB : Migration
+    public partial class dbITM : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -21,8 +21,8 @@ namespace Final_Project_APW.Migrations
                     Phone = table.Column<int>(type: "int", nullable: false),
                     NumDoc = table.Column<long>(type: "bigint", nullable: false),
                     Birthday = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    EstateId = table.Column<int>(type: "int", nullable: false),
-                    TypeDocumentId = table.Column<int>(type: "int", nullable: false),
+                    EstateId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    TypeDocumentId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     ModifiedDate = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
@@ -40,8 +40,8 @@ namespace Final_Project_APW.Migrations
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Price = table.Column<float>(type: "real", nullable: false),
                     Preparation_time_min = table.Column<int>(type: "int", nullable: false),
-                    IdEstate = table.Column<int>(type: "int", nullable: false),
-                    IdCategory = table.Column<int>(type: "int", nullable: false),
+                    IdEstate = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    IdCategory = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     ModifiedDate = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },

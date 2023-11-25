@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Final_Project_APW.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20231125051819_InitialDB")]
-    partial class InitialDB
+    [Migration("20231125130551_dbITM")]
+    partial class dbITM
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -66,8 +66,8 @@ namespace Final_Project_APW.Migrations
                     b.Property<DateTime?>("CreatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("EstateId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("EstateId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
@@ -96,8 +96,8 @@ namespace Final_Project_APW.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("TypeDocumentId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("TypeDocumentId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
@@ -150,11 +150,11 @@ namespace Final_Project_APW.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("IdCategory")
-                        .HasColumnType("int");
+                    b.Property<Guid>("IdCategory")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("IdEstate")
-                        .HasColumnType("int");
+                    b.Property<Guid>("IdEstate")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("datetime2");

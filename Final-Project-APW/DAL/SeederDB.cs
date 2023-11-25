@@ -20,12 +20,15 @@ namespace Final_Project_APW.DAL
             await _context.Database.EnsureCreatedAsync();
 
             //A partir de aquí vamos a ir creando métodos que me sirvan para prepoblar mi BD
-            await PopulateProductsAsync();
-            await PopulateClientsAsync();
             await PopulateTypesDocsAsync();
-
             await PopulateEstatesAsync();
             await PopulateCategoriesAsync();
+
+            await _context.SaveChangesAsync(); //Esta línea me guarda los datos en BD
+
+            await PopulateProductsAsync();
+            await PopulateClientsAsync();
+
 
             await _context.SaveChangesAsync(); //Esta línea me guarda los datos en BD
         }
@@ -229,7 +232,8 @@ namespace Final_Project_APW.DAL
                     Phone =1326855,
                     NumDoc = 123456,
                     Birthday = new DateTime(2002, 4, 24),
-                    EstateId= estate.Id,
+                    CreatedDate = DateTime.Now,
+                    EstateId = estate.Id,
                     TypeDocumentId= tyDoc.Id
 
 
@@ -244,6 +248,7 @@ namespace Final_Project_APW.DAL
                     Phone = 563632555,
                     NumDoc = 789455,
                     Birthday = new DateTime(2005, 8, 16),
+                    CreatedDate = DateTime.Now,
                     EstateId = estate.Id,
                     TypeDocumentId = tyDoc.Id
 
@@ -259,6 +264,7 @@ namespace Final_Project_APW.DAL
                     Phone = 582364,
                     NumDoc = 15948623,
                     Birthday = new DateTime(2000, 12, 14),
+                    CreatedDate = DateTime.Now,
                     EstateId = estate.Id,
                     TypeDocumentId = tyDoc.Id
 
