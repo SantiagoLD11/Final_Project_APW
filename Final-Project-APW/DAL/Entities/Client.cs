@@ -26,11 +26,11 @@ namespace Final_Project_APW.DAL.Entities
         public Int64 NumDoc { get; set; }
         public DateTime Birthday { get; set; }
         [Display(Name = "Id Estate")]
-        public int EstateId { get; set; } //FK
+        public Guid EstateId { get; set; } //FK
 
 
         [Display(Name = "Id Tipo Documento")]
-        public int TypeDocumentId { get; set; } //FK
+        public Guid TypeDocumentId { get; set; } //FK
 
     }
 }

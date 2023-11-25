@@ -12,7 +12,7 @@ namespace Final_Project_APW.DAL.Entities
         public string Description { get; set; }
         public float Price { get; set; }
         public int Preparation_time_min { get; set; } //Reputación de 1 a 5 estrellas que tiene el hotel.
-        public int IdEstate { get; set; }
-        public int IdCategory { get; set; }
+        public Guid IdEstate { get; set; }
+        public Guid IdCategory { get; set; }
     }
 }
