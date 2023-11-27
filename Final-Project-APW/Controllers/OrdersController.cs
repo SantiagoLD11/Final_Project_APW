@@ -15,6 +15,20 @@ namespace Final_Project_APW.Controllers
             _orderService = orderService;
         }
 
+        [HttpGet, ActionName("Get")]
+        [Route("Get")] //Aquí concateno la URL inicial: URL = api/hotels/get
+        public async Task<ActionResult<IEnumerable<Order>>> GetOrderAsync()
+        {
+            var orders = await _orderService.GetOrderAsync();
+
+            if (orders == null || !orders.Any())
+            {
+                return NotFound(); //NotFound = 404 Http Status Code
+            }
+
+            return Ok(orders); //Ok = 200 Http Status Code
+        }
+
         [HttpPost, ActionName("Create")]
         [Route("Create")]
 

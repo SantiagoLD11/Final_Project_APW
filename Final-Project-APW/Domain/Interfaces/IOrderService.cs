@@ -6,6 +6,7 @@ namespace Final_Project_APW.Domain.Interfaces
     public interface IOrderService
     {
         Task<Order> CreateOrderAsync(Order order);
+        Task<IEnumerable<Order>> GetOrderAsync();
     }
 
 }

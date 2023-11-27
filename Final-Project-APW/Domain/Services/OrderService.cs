@@ -18,6 +18,14 @@ namespace Final_Project_APW.Domain.Services
 
         int NumeroOrder = 0;
 
+        //	Listar hoteles con sus respectivas habitaciones disponibles
+        public async Task<IEnumerable<Order>> GetOrderAsync()
+        {
+            var orders = await _context.Orders.Include(o => o.OrdersDetails).ToListAsync();
+            return orders; //Retorne todos los datos que hay en la tabla Hotels.
+        }
+
+
         public async Task<Order> CreateOrderAsync(Order order)
         {
             try

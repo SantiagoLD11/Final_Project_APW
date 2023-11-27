@@ -15,7 +15,7 @@ namespace Final_Project_APW.Domain.Services
             _context = context;
         }
 
-        //	Listar hoteles con sus respectivas habitaciones disponibles
+        //	Listar Productos con sus respectivas habitaciones disponibles
         public async Task<IEnumerable<Product>> GetProductAsync()
         {
             var products = await _context.Products
