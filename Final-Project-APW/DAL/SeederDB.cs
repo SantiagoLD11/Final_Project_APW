@@ -28,7 +28,7 @@ namespace Final_Project_APW.DAL
 
             await PopulateProductsAsync();
             await PopulateClientsAsync();
-
+            await PopulateEstateOrdersAsync();
 
             await _context.SaveChangesAsync(); //Esta línea me guarda los datos en BD
         }
@@ -253,59 +253,6 @@ namespace Final_Project_APW.DAL
                     TypeDocumentId = tyDoc.Id
 
                 });
-
-
-            }
-        }
-
-        private async Task PopulateClientsAsync()
-        {
-            //El método Any() me indica si la tabla Hotels tiene al menos un registro
-            //El método Any negado (!) me indica que no hay absolutamente nada en la tabla Hotels.
-
-            if (!_context.Clients.Any())
-            {
-
-                //Aquí creo otro nuevo cliente
-                _context.Clients.Add(new Client
-                {
-                    FirstName = "MARIA",
-                    SecondName = "CAMILA",
-                    LastName = "ALVAREZ",
-                    Mail = "MCAC334@GMAIL.COM",
-                    Phone =1326855,
-                    NumDoc = 123456,
-                    Birthday = new DateTime(2002, 4, 24),
-                    EstateId=1,
-                    TypeDocumentId=2
-
-                });
-                //Aquí creo otro nuevo cliente
-                _context.Clients.Add(new Client
-                {
-                    FirstName = "MAITE",
-                    SecondName = "PAOLA",
-                    LastName = "CRUZ",
-                    Mail = "Maitecruz@gmail.com",
-                    Phone = 563632555,
-                    NumDoc = 789455,
-                    Birthday = new DateTime(2005, 8, 16),
-                    EstateId = 2,
-                    TypeDocumentId = 2
-
-                });
-                //Aquí creo otro nuevo cliente
-                _context.Clients.Add(new Client
-                {
-                    FirstName = "SANTIAGO",
-                    SecondName = "ANDRES",
-                    LastName = "PEREZ",
-                    Mail = "Santi343@GMAIL.COM",
-                    Phone = 582364,
-                    NumDoc = 15948623,
-                    Birthday = new DateTime(2000, 12, 14),
-                    EstateId = 1,
-                    TypeDocumentId = 1
                 //Aquí creo otro nuevo cliente
                 estate = await _context.Estates.Skip(2).FirstOrDefaultAsync();
                 _context.Clients.Add(new Client
@@ -320,11 +267,45 @@ namespace Final_Project_APW.DAL
                     CreatedDate = DateTime.Now,
                     EstateId = estate.Id,
                     TypeDocumentId = tyDoc.Id
-
                 });
 
+
+                }
+        }
+        private async Task PopulateEstateOrdersAsync()
+        {
+            //El método Any() me indica si la tabla Hotels tiene al menos un registro
+            //El método Any negado (!) me indica que no hay absolutamente nada en la tabla Hotels.
+
+            if (!_context.OrderEstates.Any())
+            {
+        
+                //Aquí creo otro nuevo producto
+                _context.OrderEstates.Add(new OrderEstate
+                {
+                    CreatedDate = DateTime.Now,
+                    NameEsateOrder = "En espera",
+                });
+
+                _context.OrderEstates.Add(new OrderEstate
+                {
+                    CreatedDate = DateTime.Now,
+                    NameEsateOrder = "Cancelado",
+                });
+
+                _context.OrderEstates.Add(new OrderEstate
+                {
+                    CreatedDate = DateTime.Now,
+                    NameEsateOrder = "Enviado",
+                });
+                _context.OrderEstates.Add(new OrderEstate
+                {
+                    CreatedDate = DateTime.Now,
+                    NameEsateOrder = "Entregado",
+                });
             }
         }
+
     }
 
     #endregion

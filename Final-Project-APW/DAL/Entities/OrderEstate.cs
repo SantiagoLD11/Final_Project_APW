@@ -3,15 +3,15 @@ using System.Xml.Linq;
 
 namespace Final_Project_APW.DAL.Entities
 {
-    public class Category :AuditBase
+    public class OrderEstate:AuditBase
     {
-        [Display(Name = "Categoria")]
+        [Display(Name = "Estado Pedido")]
         [MaxLength(50, ErrorMessage = "El campo {0} debe tener máximo {1} caracteres")] //Longitud de caracteres máxima que esta propiedad me permite tener, ejem varchar(50)
         [Required(ErrorMessage = "¡El campo {0} es obligatorio!")]
-        public string Name { get; set; } //varchar(50)
-
-        [Display(Name = "Producto")]
+        public string NameEsateOrder { get; set; } //varchar(50)
+        [Display(Name = "Orden")]
         //Relación con Hotel
-        public Product? Products { get; set; } //Este representa un OBJETO DE Hotel
+        public Order? Order { get; set; } //Este representa un OBJETO DE Hotel
+
     }
 }
