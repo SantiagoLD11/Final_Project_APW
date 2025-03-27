@@ -1,6 +1,6 @@
 name: CI - Pruebas API
 
-on: 
+on:
   push:
     branches:
       - main
@@ -8,6 +8,7 @@ on:
   pull_request:
     branches:
       - main
+      - develop
 
 jobs:
   test:
