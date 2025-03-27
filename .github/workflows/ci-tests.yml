@@ -1,1 +1,32 @@
+name: CI - Pruebas API
 
+on: 
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🚀 Checkout del código
+        uses: actions/checkout@v3
+
+      - name: 🏗️ Configurar .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '7.0.x'
+
+      - name: 📦 Restaurar dependencias
+        run: dotnet restore
+
+      - name: 🔨 Compilar el proyecto
+        run: dotnet build --no-restore --configuration Release
+
+      - name: 🧪 Ejecutar pruebas
+        run: dotnet test --logger trx --results-directory TestResults
